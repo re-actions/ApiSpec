@@ -1,0 +1,15 @@
+db:
+  image: postgres
+
+router:
+  build:
+
+api-spec:
+  build: .
+  command: behave
+  volumes:
+    - .:/api-spec
+  ports:
+    - "8000:8000"
+  links:
+    - db
