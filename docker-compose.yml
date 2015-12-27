@@ -1,0 +1,20 @@
+db:
+  image: postgres
+  environment:
+    - POSTGRES_USER=reactions
+    - POSTGRES_PASSWORD=reactions
+    - POSTGRES_DB=reactions
+
+router:
+  build: https://github.com/re-actions/Router.git
+  ports:
+    - "8080:8080"
+
+apptorize:
+  build: https://github.com/re-actions/Apptorize.git
+
+api-spec:
+  build: .
+  command: behave
+  volumes:
+    - .:/api-spec
