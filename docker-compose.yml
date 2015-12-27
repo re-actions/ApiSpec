@@ -1,7 +1,14 @@
 db:
   image: postgres
+  environment:
+    - POSTGRES_USER=reactions
+    - POSTGRES_PASSWORD=reactions
+    - POSTGRES_DB=reactions
 
 router:
+  build: https://github.com/re-actions/Router.git
+
+apptorize:
   build:
 
 api-spec:
